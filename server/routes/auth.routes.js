@@ -42,7 +42,7 @@ authRouter.post("/register",async(req,res)=>{
          else{
             let userdetails = {username,password,email};
             let useravailable = await userModel.find(userdetails)
-            res.status(200).send({useravailable})
+            res.status(200).send(useravailable)
          }
     })
 

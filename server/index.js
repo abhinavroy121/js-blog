@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const authRouter = require("./routes/auth.routes")
+const userBlog = require("./routes/blogs.routes")
 const cors = require("cors");
 const connection = require("./db/db")
 
@@ -10,7 +11,8 @@ const connection = require("./db/db")
 app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 
-app.use("/user",authRouter)
+app.use("/auth",authRouter)
+app.use("/user",userBlog)
 
 app.get("/",(req,res)=>{
      res.send("welcome to server")
