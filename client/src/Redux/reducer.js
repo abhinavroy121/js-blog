@@ -1,9 +1,9 @@
-
 const initStore = {
     userdetail: [],
     userposts: [],
     allposts: [],
-    seperatepost: []
+    seperatepost: [],
+    pagevalue:false,
 }
 
 export const reducer = (store= initStore,{type,payload})=>{
@@ -20,6 +20,10 @@ export const reducer = (store= initStore,{type,payload})=>{
         case "GETALLFEEDS" : return {
             ...store,
             allposts:[payload]
+        }
+        case "HOMEPAGE" : return {
+            ...store,
+            pagevalue: payload
         }
         default :return store;
        }

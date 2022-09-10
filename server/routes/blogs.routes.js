@@ -2,10 +2,12 @@ const {Router} = require("express")
 const blog = require("../model/Blog")
 const userBlog = Router()
 
-userBlog.get("/:userid",async(req,res) => {
-     res.send("data")
-})
 
+// userBlog.get("/:userid",async(req,res) => {
+//      res.send("data")
+// })
+
+// when user posts a new blog
 userBlog.post("/:userid/post",async(req,res)=>{
      try{
           const {title,url,user_id} = req.body;
@@ -28,14 +30,26 @@ userBlog.post("/:userid/post",async(req,res)=>{
      }
 })
 
+// when user fetch all the posts made by the user
 userBlog.get("/:userid/posts",async(req,res)=>{
     try{
-       let posts = await blog.find();
+       let posts = await blog.find(req.body);
      return  res.status(200).send(posts)
     }
     catch(err) {
        return res.status(500).send({message:"No Posts Found"})
     }
 })
+
+// when user wants to see all the posts in the feed
+userBlog.get("/posts",async(req,res)=>{
+     try{
+        let posts = await blog.find();
+      return  res.status(200).send(posts)
+     }
+     catch(err) {
+        return res.status(500).send({message:"No Posts Found"})
+     }
+ })
 
 module.exports = userBlog;

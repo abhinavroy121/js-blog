@@ -18,3 +18,10 @@ export const allfeeds = (payload)=> {
         payload
     }
 }
+
+export const handlehomepage = (payload)=> {
+    return {
+        type:"HOMEPAGE",
+        payload
+    }
+}
