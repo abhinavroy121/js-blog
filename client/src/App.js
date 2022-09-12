@@ -4,9 +4,10 @@ import { Navbar } from './components/Navbar';
 import { MainRoutes } from './components/MainRoutes';
 
 function App() {
+  const localstoragedata = JSON.parse(localStorage.getItem("blogtoken"))
   return (
     <div className="App">
-      <Navbar/>
+     {localstoragedata ?<Navbar/> : null} 
       <MainRoutes/>
     </div>
   );

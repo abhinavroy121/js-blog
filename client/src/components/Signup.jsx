@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Input } from '@mui/material'
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import axios from 'axios';
 export const Signup = () => {
 
      const [name,setname] = useState('')
@@ -16,6 +17,13 @@ export const Signup = () => {
      const handleSubmit = ()=>{
          const payload = {name,username,password,email,age,gender,city,profession}
          console.log(payload)
+         axios.post(`http://localhost:8080/auth/register`,payload)
+         .then((res)=> {
+            console.log(res)
+         })
+         .catch((err)=> {
+          console.log(err,"error while signup")
+         })
      }
  
   return (

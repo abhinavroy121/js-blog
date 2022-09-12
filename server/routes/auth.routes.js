@@ -35,12 +35,12 @@ authRouter.post("/register",async(req,res)=>{
     })
 
     authRouter.post("/login",async(req,res) => {
-         const {username,password,email} = req.body;
-         if(!username || !password || !email) {
+         const {password,email} = req.body;
+         if(!password || !email) {
               return res.status(403).send("Enter valid username or password")
          } 
          else{
-            let userdetails = {username,password,email};
+            let userdetails = {password,email};
             let useravailable = await userModel.find(userdetails)
             res.status(200).send(useravailable)
          }

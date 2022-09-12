@@ -1,0 +1,21 @@
+body{
+    background:url("../images/landing.jpg");
+    width:cover;
+   background-size:cover;
+}
+
+h1 {
+    font-family:arial black;
+    font-size:70px;
+    background-image: 
+      linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet, red,grey); 
+    -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;  
+    animation: rainbow-animation 65s linear infinite;
+  }
+  
+  @keyframes rainbow-animation {
+      to {
+          background-position: 4500vh;
+      }
+  }
