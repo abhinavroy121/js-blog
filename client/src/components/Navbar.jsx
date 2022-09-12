@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Route, Routes, useNavigate } from 'react-router-dom'
 import { getuser } from '../redux/action'
-import styles from "./modules-css/Navbar.module.css"
+import { Home } from './Home'
+import { Landing } from './Landing'
+import styles from "./module-css/Navbar.module.css"
 export const Navbar = () => {
 
     const [page, setpage ] = useState(false)
@@ -10,16 +12,18 @@ export const Navbar = () => {
     const navigate = useNavigate()
     const pagevalue = useSelector(store=>store.pagevalue)
     // console.log(store)
-    const localstoragedata = JSON.parse(localStorage.getItem("blogtoken"))
+    let localstoragedata = JSON.parse(localStorage.getItem("blogtoken"))
     // console.log(pagevalue)
-    useEffect(()=>{
-
-    },)
+  
 
     const handlelogout = () => {
        localStorage.removeItem("blogtoken")
-       dispatch(getuser([""]))
-       navigate("/login")
+       dispatch(getuser(""))
+       localstoragedata = null
+       setTimeout(()=>{
+        navigate("/login")
+       },2000)
+   
     }
 
   return (

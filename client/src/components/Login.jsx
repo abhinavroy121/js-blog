@@ -34,10 +34,10 @@ export const Login = () => {
   }
   return (
     <div>
+      <h1  style={{fontSize:"45px"}}>Login Here</h1>
+     
         <br/>
-        <br/>
-        <br/>
-        <div style={{width:"50%",margin:"auto",display: 'flex', flexDirection: 'column',justifyContent: 'center',gap:"30px"}}>
+        <div style={{width:"350px",margin:"auto",display: 'flex', flexDirection: 'column',justifyContent: 'center',gap:"30px"}}>
             <Input type="text" placeholder="email"  onChange={(e)=>setemail(e.target.value)}></Input>
             <Input  type="password" placeholder="password"  onChange={(e)=>setpassword(e.target.value)}></Input>
             <Button  variant="contained" onClick={handleSubmit}>click here</Button>

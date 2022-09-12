@@ -1,17 +1,20 @@
-body{
-    background:url("../images/landing.jpg");
-    width:cover;
+.imagediv{
+    background-image:url("../images/landing.jpg");
+    width:100%;
+    height:100vh;
    background-size:cover;
+   background-repeat:no-repeat; 
+   margin-top:-45px;
 }
 
 h1 {
     font-family:arial black;
     font-size:70px;
     background-image: 
-      linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet, red,grey); 
+      linear-gradient(to right, indigo,violet,grey); 
     -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;  
-    animation: rainbow-animation 65s linear infinite;
+    animation: rainbow-animation 85s linear infinite;
   }
   
   @keyframes rainbow-animation {

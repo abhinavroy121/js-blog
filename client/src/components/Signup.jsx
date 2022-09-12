@@ -28,8 +28,7 @@ export const Signup = () => {
  
   return (
     <div>
-    <br/>
-    <br/>
+   <h1 style={{fontSize:"20px"}}>Create an account</h1>
     <div style={{width:"350px",margin:"auto",display: 'flex', flexDirection: 'column',justifyContent: 'center',gap:"30px"}}>
     <Input type="text" placeholder="Name" onChange={(e)=>setname(e.target.value)}/>
     <Input type="text" placeholder="username"  onChange={(e)=>setusername(e.target.value)}/>
