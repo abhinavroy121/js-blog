@@ -33,7 +33,9 @@ userBlog.post("/:userid/post",async(req,res)=>{
 // when user fetch all the posts made by the user
 userBlog.get("/:userid/posts",async(req,res)=>{
     try{
-       let posts = await blog.find(req.body);
+      const {userid} = req.params;
+      // console.log(userid)
+       let posts = await blog.find({user_id:userid});
      return  res.status(200).send(posts)
     }
     catch(err) {

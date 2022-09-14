@@ -22,6 +22,7 @@ export const Login = () => {
           // console.log(response.data)
           dispatch(getuser(response.data))
          localStorage.setItem("blogtoken",JSON.stringify(response.data[0]._id))
+         localStorage.setItem("bloguser",JSON.stringify(response.data[0]))
          dispatch(handlehomepage(true))
          setTimeout(() =>{
             navigate("/")

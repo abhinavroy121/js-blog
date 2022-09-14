@@ -3,6 +3,8 @@
     border:1px solid black;
     padding:5px;
 cursor:pointer;
+width:200px;
+margin:auto;
 }
 .postingdiv{
     width:250px;
