@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
+import styles from "./module-css/Home.module.css"
 export const Home = () => {
   const localstoragedata = JSON.parse(localStorage.getItem("blogtoken"))
   const navigate = useNavigate()
@@ -22,7 +22,7 @@ export const Home = () => {
     const fetchblog = ()=>{
       axios.get("http://localhost:8080/user/posts")
       .then((res)=>{
-        //  console.log(res.data)
+         console.log(res.data)
          setblog(res.data)
       })
       .catch((err)=>{
@@ -34,16 +34,17 @@ export const Home = () => {
    },[])
 
   return (
-    <div>
-      <div>
+   
+      <div className={styles.blogview}>
         {blog.map((item)=>(
-          <div>
-            <p>{item.username}</p>
-            <h1>{item.title}</h1>
+          <div key={item._id}>
+            <p className={styles.username}>{item.username}</p>
             <img src={item.url} alt="" />
+            <h2>{item.title}</h2>
+            <p>description</p>
           </div>
         ))}
       </div>
-    </div>
+   
   )
 }

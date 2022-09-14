@@ -5,6 +5,7 @@ const Schema = mongoose.Schema({
      url:String,
      user_id:String,
      username:String,
+     description:String,
 })
 
 const blog = mongoose.model("soloblog",Schema)

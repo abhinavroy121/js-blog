@@ -1,0 +1,13 @@
+.blogview {
+    width:350px;
+     display:flex;
+     justify-content:center;
+     flex-direction:column;
+     background-color:lightgreen;
+     margin:auto;
+}
+.username{
+  text-align:left;
+ margin-left: 15px;
+ font-weight: bold;
+}

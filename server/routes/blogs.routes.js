@@ -10,7 +10,7 @@ const userBlog = Router()
 // when user posts a new blog
 userBlog.post("/:userid/post",async(req,res)=>{
      try{
-          const {title,url,user_id,username} = req.body;
+          const {title,url,user_id,username,description} = req.body;
           if(!title || !url || !user_id || !username){
             return res.status(404).send({message:"Post Unsuccessful"})
           }

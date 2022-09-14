@@ -1,0 +1,19 @@
+#addposthere{
+    background-color:black;
+    border:1px solid black;
+    padding:5px;
+cursor:pointer;
+}
+.postingdiv{
+    width:250px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+.hidingdiv{
+    display:none;
+}
+h2{
+    color:green;
+}
