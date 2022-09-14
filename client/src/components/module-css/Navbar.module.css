@@ -16,3 +16,6 @@
     border: 1px solid grey;
     cursor:pointer;
 }
+button{
+    border-radius:5px;
+}

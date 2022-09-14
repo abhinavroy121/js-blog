@@ -4,6 +4,7 @@ const Schema = mongoose.Schema({
      title:String,
      url:String,
      user_id:String,
+     username:String,
 })
 
 const blog = mongoose.model("soloblog",Schema)
