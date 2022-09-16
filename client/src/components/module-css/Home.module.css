@@ -1,10 +1,14 @@
 .blogview {
-    width:350px;
+    width:70%;
      display:flex;
      justify-content:center;
+     gap:10px;
      flex-direction:column;
-     background-color:lightgreen;
+
      margin:auto;
+}
+.blogview > div{
+  background-color:bisque;
 }
 .username{
   text-align:left;

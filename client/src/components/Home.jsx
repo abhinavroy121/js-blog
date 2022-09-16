@@ -23,7 +23,7 @@ export const Home = () => {
       axios.get("http://localhost:8080/user/posts")
       .then((res)=>{
          console.log(res.data)
-         setblog(res.data)
+         setblog(res.data.reverse())
       })
       .catch((err)=>{
         console.log(err);
@@ -41,7 +41,7 @@ export const Home = () => {
             <p className={styles.username}>{item.username}</p>
             <img src={item.url} alt="" />
             <h2>{item.title}</h2>
-            <p>description</p>
+            <p>{item.description}</p>
           </div>
         ))}
       </div>

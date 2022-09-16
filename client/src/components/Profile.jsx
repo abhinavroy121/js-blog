@@ -22,7 +22,7 @@ export const Profile = () => {
   const fetchprofile = () =>{
     axios.get(`http://localhost:8080/user/${userid}/posts`)
     .then((res)=>{
-     setuserprofile(res.data)
+     setuserprofile(res.data.reverse())
      if(res.data.length > 0){
        setdmap(false)
      }
