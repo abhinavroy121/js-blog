@@ -15,8 +15,14 @@ margin:auto;
 
      margin:auto;
 }
-.blogview > div{
-  background-color:bisque;
+.blogview {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  justify-content: space-around;
+  margin-top:15px;
+}
+.blogview > div > img {
+    width:350px;
 }
 .postingdiv{
     width:250px;

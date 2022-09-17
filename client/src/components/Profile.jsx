@@ -81,7 +81,7 @@ const handlesubmit = () => {
       <div className={styles.blogview}>
         {dmap ?   <h1>No Post Found</h1> :userprofile.map((item)=>(
           <div key={item._id}>
-            <p className={styles.username}>{item.username}</p>
+        
             <img src={item.url} alt="" />
             <h2>{item.title}</h2>
             <p>{item.description}</p>
