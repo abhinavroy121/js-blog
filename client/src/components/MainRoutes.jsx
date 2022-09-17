@@ -6,6 +6,7 @@ import { Landing } from './Landing'
 import { Login } from './Login'
 import { Profile } from './Profile'
 import { Signup } from './Signup'
+import UserPage from './UserPage'
 
 export const MainRoutes = () => {
     const [page, setpage ] = useState(false)
@@ -23,6 +24,7 @@ export const MainRoutes = () => {
             <Route path="/login" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            <Route path="/duser" element={<UserPage/>}/>
         </Routes>
     </div>
   )

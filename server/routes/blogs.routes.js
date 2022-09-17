@@ -56,10 +56,12 @@ userBlog.get("/posts",async(req,res)=>{
 
  // when user wants to see different user  profile page
 
-  userBlog.post("/:userid",async (req,res)=>{
+  userBlog.get("/:username",async (req,res)=>{
       try{
-          let postuser = await blog.find({username:req.body})
-          console.log(postuser)
+        let {username} = req.params
+        console.log(req.params)
+          let postuser = await blog.find({username})
+          // console.log(postuser)
           res.send(postuser)
       }
       catch(err) {
@@ -67,5 +69,5 @@ userBlog.get("/posts",async(req,res)=>{
        res.status(500).send({message:"couldn't load other user page"})
       }
   })
-
+ 
 module.exports = userBlog;

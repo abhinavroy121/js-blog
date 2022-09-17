@@ -14,7 +14,7 @@ export const Home = () => {
     }
   },[])
   const userdetailhere = useSelector(store=> store.userdetail)
-  console.log(userdetailhere);
+  // console.log(userdetailhere);
   const [blog,setblog] = useState([])
 
 
@@ -22,7 +22,7 @@ export const Home = () => {
     const fetchblog = ()=>{
       axios.get("http://localhost:8080/user/posts")
       .then((res)=>{
-         console.log(res.data)
+        //  console.log(res.data)
          setblog(res.data.reverse())
       })
       .catch((err)=>{
@@ -38,7 +38,10 @@ export const Home = () => {
       <div className={styles.blogview}>
         {blog.map((item)=>(
           <div key={item._id}>
-            <p className={styles.username}>{item.username}</p>
+            <p className={styles.username} onClick={()=>{
+               localStorage.setItem("differentone",item.username)
+               navigate("/duser")
+            }}>{item.username}</p>
             <img src={item.url} alt="" />
             <h2>{item.title}</h2>
             <p>{item.description}</p>
