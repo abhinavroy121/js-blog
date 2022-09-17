@@ -54,4 +54,17 @@ userBlog.get("/posts",async(req,res)=>{
      }
  })
 
+ // when user wants to see different user  profile page
+
+  userBlog.get("/:userid",async (req,res)=>{
+      try{
+          let postuser = await blog.find({username:req.body})
+          console.log(postuser)
+          res.send(postuser)
+      }
+      catch(err) {
+       console.log("err in finding different user profile page",err)
+      }
+  })
+
 module.exports = userBlog;

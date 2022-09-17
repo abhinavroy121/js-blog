@@ -27,7 +27,7 @@ export const Home = () => {
       })
       .catch((err)=>{
         console.log(err);
-        alert("DATA NOT FOUND")
+        // alert("DATA NOT FOUND")
       })
     }
     fetchblog()

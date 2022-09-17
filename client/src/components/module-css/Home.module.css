@@ -1,5 +1,5 @@
 .blogview {
-    width:70%;
+    width:60%;
      display:flex;
      justify-content:center;
      gap:10px;
@@ -8,10 +8,19 @@
      margin:auto;
 }
 .blogview > div{
-  background-color:bisque;
+  background-color:rgb(177, 171, 163);
+  border-radius: 10px;
+  margin-top:10px;
+
 }
 .username{
+  width:fit-content;
   text-align:left;
  margin-left: 15px;
  font-weight: bold;
+ padding:5px;
+ border: 3px solid grey;
+ border-radius: 10px;
+ background-color:white;
+ cursor:pointer;
 }
