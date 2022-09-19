@@ -25,3 +25,9 @@ export const handlehomepage = (payload)=> {
         payload
     }
 }
+export const singlepostfun = (payload)=> {
+    return{
+        type:"SINGLEPAGE",
+        payload
+    }
+}

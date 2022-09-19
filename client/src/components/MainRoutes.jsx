@@ -6,6 +6,7 @@ import { Landing } from './Landing'
 import { Login } from './Login'
 import { Profile } from './Profile'
 import { Signup } from './Signup'
+import SinglePost from './SinglePost'
 import UserPage from './UserPage'
 
 export const MainRoutes = () => {
@@ -25,6 +26,7 @@ export const MainRoutes = () => {
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/duser" element={<UserPage/>}/>
+            <Route path="/soloblog" element={<SinglePost/>}/>
         </Routes>
     </div>
   )

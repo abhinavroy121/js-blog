@@ -4,6 +4,7 @@ const initStore = {
     allposts: [],
     seperatepost: [],
     pagevalue:false,
+    singledata:[]
 }
 
 export const reducer = (store= initStore,{type,payload})=>{
@@ -24,6 +25,10 @@ export const reducer = (store= initStore,{type,payload})=>{
         case "HOMEPAGE" : return {
             ...store,
             pagevalue: payload
+        }
+        case "SINGLEPAGE" : return {
+            ...store,
+            singledata:[payload]
         }
         default :return store;
        }

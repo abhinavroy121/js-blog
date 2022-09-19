@@ -4,18 +4,23 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+
 import styles from "./module-css/Profile.module.css";
+import { useDispatch } from 'react-redux';
+import { singlepostfun } from '../redux/action';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Profile = () => {
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [userprofile,setuserprofile] = useState([])
   const [visible,setvisible] = useState(false)
   const [title,settitle] = useState("")
   const [description,setdescription] = useState('')
   const [url,seturl] = useState("")
   const [dmap,setdmap] = useState(true)
+  const [buttons,setbuttons] = useState(0)
   const localstoragedata = JSON.parse(localStorage.getItem("blogtoken"))
   const {username} = JSON.parse(localStorage.getItem("bloguser"))
   // console.log(username)
@@ -50,7 +55,7 @@ const handlesubmit = () => {
     .then((res)=>{
      alert("Post added successfully")
      fetchprofile()
- console.log(res.data)
+//  console.log(res.data)
     })
     .catch((err)=>{
      alert("Error in adding post")
@@ -69,8 +74,12 @@ const handlesubmit = () => {
 
 }
   
-   
-  
+
+
+const handledata = (e) => {
+  dispatch(singlepostfun(e))
+  navigate("/soloblog")
+}
 
   return (
     <div>
@@ -85,8 +94,11 @@ const handlesubmit = () => {
       </div>
       <div className={styles.blogview}>
         {dmap ?   <h1>No Post Found</h1> :userprofile.map((item)=>(
-          <div key={item._id}>
         
+          <div key={item._id} onClick={()=>handledata(item)}>
+          
+         
+  
             <img src={item.url} alt="" />
             <h2>{item.title}</h2>
             <p>{item.description}</p>

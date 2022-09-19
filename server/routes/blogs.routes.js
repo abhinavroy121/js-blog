@@ -1,5 +1,6 @@
 const {Router} = require("express")
-const blog = require("../model/Blog")
+const blog = require("../model/Blog");
+const user = require("../model/User");
 const userBlog = Router()
 
 
@@ -45,13 +46,21 @@ userBlog.get("/:userid/posts",async(req,res)=>{
 
 // when user wants to delete a post posted by itself
 
- userBlog.delete("/:userid/:_id",async (req,res)=>{
+ userBlog.delete("/:userid/:id",async (req,res)=>{
      try{
-      let {_id,user_id} = req.params;
-        let userpost = await blog.find()
+      let {id,user_id} = req.params;
+      console.log(id)
+        let userpost = await blog.findByIdAndDelete(id)
+        console.log(userpost)
+        if (userpost) {
+          console.log(req.body)
+      return  res.status(201).send("file deleted");
+      }
+      
      }
      catch(err) {
       console.log(err,"error in deleting post")
+      res.send("ERROr from server")
      }
  })
 
