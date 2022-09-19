@@ -2,7 +2,12 @@ import { Button, Input, TextField } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import styles from "./module-css/Profile.module.css"
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import styles from "./module-css/Profile.module.css";
+
+
 export const Profile = () => {
 
   const [userprofile,setuserprofile] = useState([])
@@ -85,6 +90,7 @@ const handlesubmit = () => {
             <img src={item.url} alt="" />
             <h2>{item.title}</h2>
             <p>{item.description}</p>
+
           </div>
         )) }
       </div>

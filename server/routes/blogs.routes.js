@@ -43,6 +43,18 @@ userBlog.get("/:userid/posts",async(req,res)=>{
     }
 })
 
+// when user wants to delete a post posted by itself
+
+ userBlog.delete("/:userid/:_id",async (req,res)=>{
+     try{
+      let {_id,user_id} = req.params;
+        let userpost = await blog.find()
+     }
+     catch(err) {
+      console.log(err,"error in deleting post")
+     }
+ })
+
 // when user wants to see all the posts in the feed
 userBlog.get("/posts",async(req,res)=>{
      try{
