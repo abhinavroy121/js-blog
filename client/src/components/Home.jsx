@@ -20,6 +20,7 @@ export const Home = () => {
   const userdetailhere = useSelector((store) => store.userdetail);
   // console.log(userdetailhere);
   const [blog, setblog] = useState([]);
+  
 // fetch in useeffect to get all the user posts here
 const userlogined = JSON.parse(localStorage.getItem("bloguser"));
 const fetchblog = () => {
@@ -52,6 +53,7 @@ const fetchblog = () => {
     .catch((err)=> console.log(err))
 
     fetchblog();
+
  }
 
   return (
@@ -72,10 +74,16 @@ const fetchblog = () => {
           <p>{item.description}</p>
           <span style={{left:-10}}>
           <IconContext.Provider value={{color: 'blue', size: 40}}  >
-           {item.likes.includes(userlogined.username)? <AiFillHeart onClick={()=>{
+           {item.likes.includes(userlogined.username) ? <AiFillHeart onClick={()=>{
                 console.log("clicked")
+             
             }}/>:
            <AiOutlineHeart onClick={()=> handlelike(item)}/>}
+            {/* {quick? <AiFillHeart onClick={()=>{
+                console.log("clicked")
+                setquick(false)
+            }}/>:
+           <AiOutlineHeart onClick={()=> handlelike(item)}/>} */}
              
           </IconContext.Provider >
            <h3>{item.likes.length}</h3>
