@@ -74,6 +74,23 @@ userBlog.get("/posts",async(req,res)=>{
         return res.status(500).send({message:"No Posts Found"})
      }
  })
+  
+  // when user wants to like a post 
+   
+   userBlog.patch("/posts/:postId", async (req, res) => {
+          try{
+             console.log(req.params)
+            let {postId} = req.params
+           let likepost = await blog.findByIdAndUpdate(postId,req.body)
+            console.log(likepost)
+            return res.send(likepost)
+            
+          }
+          catch(err) {
+            return res.status(500).send({message:"No Posts Found to like"})
+          }
+   })
+
 
  // when user wants to see different user  profile page
 

@@ -11,7 +11,7 @@ import styles from "./module-css/Home.module.css";
 export const Home = () => {
   const localstoragedata = JSON.parse(localStorage.getItem("blogtoken"));
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     if (!localstoragedata) {
       navigate("/login");
@@ -21,6 +21,8 @@ export const Home = () => {
   // console.log(userdetailhere);
   const [blog, setblog] = useState([]);
 // fetch in useeffect to get all the user posts here
+const userlogined = JSON.parse(localStorage.getItem("bloguser"));
+
 
   useEffect(() => {
     const fetchblog = () => {
@@ -39,7 +41,16 @@ export const Home = () => {
   }, []);
   /////
 
-  
+ const handlelike = (post)=>{
+  post.likes.push(userlogined.username)
+  //  console.log(post.likes);
+    
+    const payload = {...post  }
+    console.log(payload)
+    axios.patch(`http://localhost:8080/user/posts/${post._id}`,payload)
+    .then((res)=> console.log(res.data))
+    .catch((err)=> console.log(err))
+ }
 
   return (
     <div className={styles.blogview}>
@@ -59,16 +70,13 @@ export const Home = () => {
           <p>{item.description}</p>
           <span style={{left:-10}}>
           <IconContext.Provider value={{color: 'blue', size: 40}}  >
-            {item.likes == true ? (
-              <AiFillHeart onClick={()=>{
+           {item.likes.includes(userlogined.username)? <AiFillHeart onClick={()=>{
                 console.log("clicked")
-            }}/>
-            ) : (
-              <AiOutlineHeart onClick={()=>{
-               
-            }}/>
-            )}
+            }}/>:
+           <AiOutlineHeart onClick={()=> handlelike(item)}/>}
+             
           </IconContext.Provider >
+       
           </span>
         </div>
       ))}
