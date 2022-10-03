@@ -22,21 +22,21 @@ export const Home = () => {
   const [blog, setblog] = useState([]);
 // fetch in useeffect to get all the user posts here
 const userlogined = JSON.parse(localStorage.getItem("bloguser"));
-
+const fetchblog = () => {
+  axios
+    .get("http://localhost:8080/user/posts")
+    .then((res) => {
+      //  console.log(res.data)
+      setblog(res.data.reverse());
+    })
+    .catch((err) => {
+      console.log(err);
+      // alert("DATA NOT FOUND")
+    });
+};
 
   useEffect(() => {
-    const fetchblog = () => {
-      axios
-        .get("http://localhost:8080/user/posts")
-        .then((res) => {
-          //  console.log(res.data)
-          setblog(res.data.reverse());
-        })
-        .catch((err) => {
-          console.log(err);
-          // alert("DATA NOT FOUND")
-        });
-    };
+
     fetchblog();
   }, []);
   /////
@@ -50,6 +50,8 @@ const userlogined = JSON.parse(localStorage.getItem("bloguser"));
     axios.patch(`http://localhost:8080/user/posts/${post._id}`,payload)
     .then((res)=> console.log(res.data))
     .catch((err)=> console.log(err))
+
+    fetchblog();
  }
 
   return (
@@ -76,7 +78,7 @@ const userlogined = JSON.parse(localStorage.getItem("bloguser"));
            <AiOutlineHeart onClick={()=> handlelike(item)}/>}
              
           </IconContext.Provider >
-       
+           <h3>{item.likes.length}</h3>
           </span>
         </div>
       ))}
