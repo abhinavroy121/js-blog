@@ -36,10 +36,7 @@ export const Home = () => {
       });
   };
 
-  useEffect(() => {
-    fetchblog();
-  }, []);
-  /////
+ 
 
   const handlelike = (post) => {
     post.likes.push(userlogined.username);
@@ -54,6 +51,11 @@ export const Home = () => {
 
     fetchblog();
   };
+
+  useEffect(() => {
+    fetchblog();
+  }, [handlelike]);
+  /////
 
   return (
     <div className={styles.blogview}>
