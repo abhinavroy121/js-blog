@@ -1,26 +1,29 @@
 .blogview {
-    width:60%;
-     display:flex;
-     justify-content:center;
-     gap:10px;
-     flex-direction:column;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-direction: column;
 
-     margin:auto;
+  margin: auto;
 }
-.blogview > div{
-  background-color:rgb(177, 171, 163);
+.blogview > div {
+  background-color: rgb(177, 171, 163);
   border-radius: 10px;
-  margin-top:10px;
-
+  margin-top: 10px;
 }
-.username{
-  width:fit-content;
-  text-align:left;
- margin-left: 15px;
- font-weight: bold;
- padding:5px;
- border: 3px solid grey;
- border-radius: 10px;
- background-color:white;
- cursor:pointer;
+.blogview > div > img {
+  width: 350px;
+  border-radius: 5px;
+}
+.username {
+  width: fit-content;
+  text-align: left;
+  margin-left: 15px;
+  font-weight: bold;
+  padding: 5px;
+  border: 3px solid grey;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
 }

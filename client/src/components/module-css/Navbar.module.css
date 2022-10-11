@@ -1,21 +1,21 @@
-.navbarcontent{
-    width: 100%;
-    display: flex;
-   justify-content: center;
-   gap: 8.5em;
-   background-color:lightblue;
-   padding:20px;
+.navbarcontent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8.5em;
+  background-color: lightblue;
+  padding: 20px;
 }
 .navbarcontent > a button {
-    padding:5px;
-    background-color:black;
-    color:white;
-    border-radius:5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 1px solid grey;
-    cursor:pointer;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid grey;
+  cursor: pointer;
 }
-button{
-    border-radius:5px;
+button {
+  border-radius: 5px;
 }
