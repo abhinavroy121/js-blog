@@ -4,6 +4,7 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { getuser } from "../redux/action";
 import { Home } from "./Home";
 import { Landing } from "./Landing";
+import StickyNav, { styles as stickyNavStyles } from "react-sticky-nav";
 import styles from "./module-css/Navbar.module.css";
 export const Navbar = () => {
   const [page, setpage] = useState(false);
@@ -24,7 +25,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "lightblue" }}>
+    <StickyNav style={{ backgroundColor: "lightblue" }}>
       <div className={styles.navbarcontent}>
         <Link to="/">
           {" "}
@@ -53,6 +54,6 @@ export const Navbar = () => {
           </Link>
         )}
       </div>
-    </div>
+    </StickyNav>
   );
 };
