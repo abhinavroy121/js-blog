@@ -29,7 +29,14 @@ const SinglePost = () => {
   const handleedit = () => {};
   console.log(singledata);
   return (
-    <div>
+    <div style={{backgroundColor: "rgb(228, 219, 219)",
+    width:"60%",
+    margin:"auto"
+    ,
+    marginTop: "30px",
+      padding: "5px",
+      boxShadow:"rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"
+    }}>
       <img src={singledata.url} alt="" />
       <h2>{singledata.title}</h2>
       <p>{singledata.description}</p>

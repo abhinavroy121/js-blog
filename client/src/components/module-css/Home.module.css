@@ -8,9 +8,10 @@
   margin: auto;
 }
 .blogview > div {
-  background-color: rgb(177, 171, 163);
-  border-radius: 10px;
-  margin-top: 10px;
+  background-color: rgb(228, 219, 219);
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
 }
 .blogview > div > img {
   width: 350px;
